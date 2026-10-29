@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="340" viewBox="0 0 600 340" role="img" aria-labelledby="t d">
+<title id="t">it-automation-tools</title>
+<desc id="d">it-automation-tools: Endpoint automation for Windows and macOS fleets: Intune, SCCM, Kandji. My call: Native OS tools, minimal dependencies. PowerShell, Bash, Python + Polars.</desc>
+<rect x="5" y="5" width="590" height="330" rx="20" fill="#0F141B" stroke="#263040" stroke-width="2"/>
+<text x="40" y="64" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="400" fill="#8B98A9" text-anchor="start" letter-spacing="1.5">ENTERPRISE  ·  2024-2025</text>
+<text x="40" y="116" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#E6EDF3" text-anchor="start" letter-spacing="-0.5">it-automation-tools</text>
+<text x="40" y="158" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#E6EDF3" text-anchor="start">Endpoint automation for Windows and</text>
+<text x="40" y="188" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#E6EDF3" text-anchor="start">macOS fleets: Intune, SCCM, Kandji.</text>
+<rect x="40" y="210" width="520" height="46" rx="10" fill="#161C25"/>
+<rect x="40" y="210" width="5" height="46" rx="2.5" fill="#B794F6"/>
+<text x="60" y="240" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#B794F6" text-anchor="start">My call:</text>
+<text x="142" y="240" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="19" font-weight="400" fill="#E6EDF3" text-anchor="start">Native OS tools, minimal dependencies.</text>
+<rect x="40" y="280" width="132" height="34" rx="17" fill="#161C25" stroke="#263040" stroke-width="1.5"/>
+<text x="54" y="303" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" font-weight="400" fill="#E6EDF3" text-anchor="start">PowerShell</text>
+<rect x="182" y="280" width="69" height="34" rx="17" fill="#161C25" stroke="#263040" stroke-width="1.5"/>
+<text x="196" y="303" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" font-weight="400" fill="#E6EDF3" text-anchor="start">Bash</text>
+<rect x="261" y="280" width="184" height="34" rx="17" fill="#161C25" stroke="#263040" stroke-width="1.5"/>
+<text x="275" y="303" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" font-weight="400" fill="#E6EDF3" text-anchor="start">Python + Polars</text>
+</svg>
