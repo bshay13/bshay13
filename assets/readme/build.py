@@ -9,29 +9,38 @@ from xml.sax.saxutils import escape
 
 OUT = Path(__file__).parent
 
-# One text color and one accent per theme. Bars use Apple's system blue, indigo, purple and pink, spread across the full
-# scale so a longer bar reaches further into the spectrum.
+# Light mode is sampled from a white Bronco with heritage-red trim: warm
+# off-white paint, the stripe red (#A72530) and the near-black trim. The hero's
+# double stripe is the Bronco side graphic. Dark mode is true black with an
+# approximation of Bronco's Area 51 dusty blue.
 THEMES = {
-    "dark": {"fg": "#F5F5F7", "accent": "#2997FF",
-             "ramp": ("#0A84FF", "#5E5CE6", "#BF5AF2", "#FF375F")},
-    "light": {"fg": "#1D1D1F", "accent": "#0071E3",
-              "ramp": ("#007AFF", "#5856D6", "#AF52DE", "#FF2D55")},
+    "light": {"canvas": "#F1EEE9", "ink": "#1C1716", "accent": "#A72530"},
+    "dark": {"canvas": "#000000", "ink": "#F2F5FA", "accent": "#7FA3B3"},
 }
 
 SANS = "-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif"
 MONO = "ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace"
 
-NAME = "Brandon Shay"
-LINE = "AI systems I can stand behind."
+HEADLINE = ["I build AI systems", "and the evals that measure them."]
+META = "Orange County, CA  ·  Open to AI Engineer roles"
 
-# Test functions per repo: git grep -E '^\s*(async )?def test_' | wc -l
-TESTS = [("margin_invest", 546), ("assay", 175), ("ai-jobs", 89), ("notionIQ", 50)]
+TOOLS = [
+    {"slug": "notioniq", "name": "notionIQ",
+     "lines": ["Claude reads a Notion", "workspace and proposes", "a cleanup."],
+     "proof": "50 tests"},
+    {"slug": "ai-jobs", "name": "ai-jobs",
+     "lines": ["My job search, run from", "Claude Code. Listings, fit", "scores, tailored CVs."],
+     "proof": "89 tests"},
+    {"slug": "it-automation-tools", "name": "it-automation-tools",
+     "lines": ["Keeps Windows and Mac", "fleets in line through", "Intune and Kandji."],
+     "proof": "PowerShell + Bash"},
+]
 
 
-def text(x, y, s, size, fill, *, font=SANS, weight=400, spacing=0, anchor="start"):
+def text(x, y, s, size, fill, *, font=SANS, weight=400, spacing=0):
     return (
         f'<text x="{x}" y="{y}" font-family="{font}" font-size="{size}" font-weight="{weight}" '
-        f'letter-spacing="{spacing}" fill="{fill}" text-anchor="{anchor}">{escape(s)}</text>'
+        f'letter-spacing="{spacing}" fill="{fill}">{escape(s)}</text>'
     )
 
 
@@ -43,59 +52,59 @@ def svg(w, h, title, body):
     )
 
 
+def reveal(element, begin):
+    """Fade an element in while it rises 10 units, then hold (plays once)."""
+    return (
+        f'<g opacity="0">'
+        f'<animate attributeName="opacity" from="0" to="1" begin="{begin}s" dur="0.6s" fill="freeze"/>'
+        f'<animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" '
+        f'begin="{begin}s" dur="0.6s" calcMode="spline" keySplines="0.2 0.8 0.2 1" fill="freeze"/>'
+        f"{element}</g>"
+    )
+
+
 def build_hero(t):
-    return svg(1200, 240, f"{NAME}. {LINE}", [
-        text(2, 120, NAME, 96, t["fg"], weight=700, spacing=-3),
-        text(4, 196, LINE, 44, t["fg"], spacing=-0.8),
+    # A shell prompt types `whoami`, then the headline arrives as its output.
+    # SMIL animation plays once on load and freezes on the final frame.
+    steps = ";".join(str(round(i * 13.6)) for i in range(7))
+    typing = 'begin="0.5s" dur="0.6s" calcMode="discrete" fill="freeze"'
+    return svg(1200, 360, f'whoami: {" ".join(HEADLINE)} {META}', [
+        '<defs><clipPath id="typed"><rect x="118" y="60" width="0" height="44">'
+        f'<animate attributeName="width" values="{steps};84" {typing}/></rect></clipPath></defs>',
+        f'<rect width="1200" height="324" rx="14" fill="{t["canvas"]}"/>',
+        text(66, 92, "~ $", 22, t["accent"], font=MONO, weight=700),
+        f'<g clip-path="url(#typed)">{text(120, 92, "whoami", 22, t["ink"], font=MONO)}</g>',
+        f'<rect x="121" y="73" width="12" height="24" fill="{t["accent"]}">'
+        '<animate attributeName="opacity" values="1;0;1" dur="0.5s" repeatCount="1"/>'
+        f'<animateTransform attributeName="transform" type="translate" '
+        f'values="{";".join(f"{v} 0" for v in steps.split(";"))};84 0" {typing}/>'
+        '<set attributeName="opacity" to="0" begin="1.35s" fill="freeze"/></rect>',
+        reveal(text(64, 164, HEADLINE[0], 52, t["ink"], weight=700, spacing=-1.4), 1.4),
+        reveal(text(64, 226, HEADLINE[1], 52, t["ink"], weight=700, spacing=-1.4), 1.6),
+        reveal(text(66, 282, META, 21, t["ink"]), 1.9),
     ])
 
 
-def build_tests(t):
-    total = sum(n for _, n in TESTS)
-    top = max(n for _, n in TESTS)
-    stops = "".join(
-        f'<stop offset="{i / (len(t["ramp"]) - 1):.2f}" stop-color="{c}"/>'
-        for i, c in enumerate(t["ramp"])
-    )
-    body = [
-        f'<defs><linearGradient id="ramp" gradientUnits="userSpaceOnUse" '
-        f'x1="644" y1="0" x2="1084" y2="0">{stops}</linearGradient></defs>',
-        text(2, 140, f"{total}", 112, t["fg"], weight=700, spacing=-4),
-        text(6, 190, "test functions across four projects", 26, t["fg"]),
-    ]
-    for i, (name, n) in enumerate(TESTS):
-        y = 58 + i * 58
-        width = round(440 * n / top)
-        body.append(text(620, y + 8, name, 22, t["fg"], font=MONO, anchor="end"))
-        body.append(f'<rect x="644" y="{y - 10}" width="{width}" height="24" rx="12" fill="url(#ramp)"/>')
-        body.append(text(644 + width + 14, y + 8, str(n), 22, t["fg"], font=MONO))
-    rows = ", ".join(f"{name} {n}" for name, n in TESTS)
-    return svg(1200, 260, f"{total} test functions across four projects: {rows}.", body)
-
-
-TOOLS = [
-    {"slug": "notioniq", "name": "notionIQ",
-     "lines": ["Reads a Notion workspace", "with Claude and suggests", "a cleanup."],
-     "proof": "50 tests"},
-    {"slug": "ai-jobs", "name": "ai-jobs",
-     "lines": ["Runs my own job search", "from Claude Code: listings,", "fit scores, tailored CVs."],
-     "proof": "89 tests"},
-    {"slug": "it-automation-tools", "name": "it-automation-tools",
-     "lines": ["Keeps Windows and Mac", "fleets in line through", "Intune and Kandji."],
-     "proof": "PowerShell + Bash"},
-]
-
-
 def build_tool(c, t):
-    body = [
-        f'<rect x="4" y="16" width="48" height="3" rx="1.5" fill="{t["accent"]}"/>',
-        text(4, 74, c["name"], 30, t["fg"], weight=700, spacing=-0.5),
-    ]
-    for i, line in enumerate(c["lines"]):
-        body.append(text(4, 118 + i * 30, line, 22, t["fg"]))
-    body.append(text(4, 228, c["proof"], 20, t["fg"], font=MONO))
-    body.append(text(4, 270, "View on GitHub ›", 22, t["accent"]))
-    return svg(400, 290, f'{c["name"]}. {" ".join(c["lines"])} {c["proof"]}.', body)
+    # The name takes the accent: the whole column links to the repo.
+    body = [text(4, 40, c["name"], 28, t["accent"], weight=700, spacing=-0.5)]
+    for j, line in enumerate(c["lines"]):
+        body.append(text(4, 84 + j * 30, line, 21, t["ink"]))
+    body.append(text(4, 192, c["proof"], 19, t["ink"], font=MONO))
+    return svg(400, 212, f'{c["name"]}. {" ".join(c["lines"])} {c["proof"]}.', body)
+
+
+# GitHub forces its own blue on markdown links, so links that should carry the
+# palette are drawn as text images instead.
+LINKS = {"margin-invest": ("Margin Invest", 36), "assay": ("assay", 36),
+         "linkedin": ("Say hello on LinkedIn ›", 26)}
+
+
+def build_link(label, size, t):
+    return svg(1200, round(size * 1.6), label, [
+        text(2, round(size * 1.15), label, size, t["accent"], weight=700 if size > 30 else 500,
+             spacing=-0.6 if size > 30 else 0),
+    ])
 
 
 def main():
@@ -103,9 +112,10 @@ def main():
         old.unlink()
     for name, t in THEMES.items():
         (OUT / f"hero-{name}.svg").write_text(build_hero(t))
-        (OUT / f"tests-{name}.svg").write_text(build_tests(t))
         for c in TOOLS:
             (OUT / f"tool-{c['slug']}-{name}.svg").write_text(build_tool(c, t))
+        for slug, (label, size) in LINKS.items():
+            (OUT / f"link-{slug}-{name}.svg").write_text(build_link(label, size, t))
 
 
 if __name__ == "__main__":
