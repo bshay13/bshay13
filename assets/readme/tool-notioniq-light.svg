@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="290" viewBox="0 0 400 290" role="img" aria-labelledby="t">
+<title id="t">notionIQ. Reads a Notion workspace with Claude and suggests a cleanup. 50 tests.</title>
+<rect x="4" y="16" width="48" height="3" rx="1.5" fill="#0071E3"/>
+<text x="4" y="74" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="-0.5" fill="#1D1D1F" text-anchor="start">notionIQ</text>
+<text x="4" y="118" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="0" fill="#1D1D1F" text-anchor="start">Reads a Notion workspace</text>
+<text x="4" y="148" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="0" fill="#1D1D1F" text-anchor="start">with Claude and suggests</text>
+<text x="4" y="178" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="0" fill="#1D1D1F" text-anchor="start">a cleanup.</text>
+<text x="4" y="228" font-family="ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" letter-spacing="0" fill="#1D1D1F" text-anchor="start">50 tests</text>
+<text x="4" y="270" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="0" fill="#0071E3" text-anchor="start">View on GitHub ›</text>
+</svg>
