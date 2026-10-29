@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="212" viewBox="0 0 400 212" role="img" aria-labelledby="t">
-<title id="t">it-automation-tools. Keeps Windows and Mac fleets in line through Intune and Kandji. PowerShell + Bash.</title>
+<title id="t">it-automation-tools. Zscaler cert trust, weekly restarts and Edge repair for Windows and Mac. 5 scripts.</title>
 <text x="4" y="40" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5" fill="#7FA3B3">it-automation-tools</text>
-<text x="4" y="84" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="400" letter-spacing="0" fill="#F2F5FA">Keeps Windows and Mac</text>
-<text x="4" y="114" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="400" letter-spacing="0" fill="#F2F5FA">fleets in line through</text>
-<text x="4" y="144" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="400" letter-spacing="0" fill="#F2F5FA">Intune and Kandji.</text>
-<text x="4" y="192" font-family="ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace" font-size="19" font-weight="400" letter-spacing="0" fill="#F2F5FA">PowerShell + Bash</text>
+<text x="4" y="84" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="400" letter-spacing="0" fill="#F2F5FA">Zscaler cert trust, weekly</text>
+<text x="4" y="114" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="400" letter-spacing="0" fill="#F2F5FA">restarts and Edge repair</text>
+<text x="4" y="144" font-family="-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="400" letter-spacing="0" fill="#F2F5FA">for Windows and Mac.</text>
+<text x="4" y="192" font-family="ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace" font-size="19" font-weight="400" letter-spacing="0" fill="#F2F5FA">5 scripts</text>
 </svg>

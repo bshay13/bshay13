@@ -10,12 +10,12 @@ from xml.sax.saxutils import escape
 OUT = Path(__file__).parent
 
 # Light mode is sampled from a white Bronco with heritage-red trim: warm
-# off-white paint, the stripe red (#A72530) and the near-black trim. The hero's
-# double stripe is the Bronco side graphic. Dark mode is true black with an
-# approximation of Bronco's Area 51 dusty blue.
+# off-white paint, the stripe red (#A72530) and the near-black trim. The dark
+# canvas matches GitHub's dark code blocks so the hero sits with them, and
+# the accent approximates Bronco's Area 51 dusty blue.
 THEMES = {
     "light": {"canvas": "#F1EEE9", "ink": "#1C1716", "accent": "#A72530"},
-    "dark": {"canvas": "#000000", "ink": "#F2F5FA", "accent": "#7FA3B3"},
+    "dark": {"canvas": "#151B23", "ink": "#F2F5FA", "accent": "#7FA3B3"},
 }
 
 SANS = "-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica Neue, Arial, sans-serif"
@@ -32,8 +32,8 @@ TOOLS = [
      "lines": ["My job search, run from", "Claude Code. Listings, fit", "scores, tailored CVs."],
      "proof": "89 tests"},
     {"slug": "it-automation-tools", "name": "it-automation-tools",
-     "lines": ["Keeps Windows and Mac", "fleets in line through", "Intune and Kandji."],
-     "proof": "PowerShell + Bash"},
+     "lines": ["Zscaler cert trust, weekly", "restarts and Edge repair", "for Windows and Mac."],
+     "proof": "5 scripts"},
 ]
 
 
