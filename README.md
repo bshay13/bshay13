@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/hero-dark.svg">
-  <img src="assets/readme/hero-light.svg" width="100%" alt="~ $ whoami. I build AI systems and the evals that measure them. Orange County, CA. Open to AI Engineer roles.">
+  <img src="assets/readme/hero-light.svg" width="100%" alt="~ $ whoami. I build AI systems and the evals that measure them. Orange County, CA.">
 </picture>
 
 <br>
