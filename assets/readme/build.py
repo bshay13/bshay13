@@ -22,14 +22,14 @@ SANS = "-apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Helvetica N
 MONO = "ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace"
 
 HEADLINE = ["I build AI systems", "and the evals that measure them."]
-META = "Orange County, CA  ·  Open to AI Engineer roles"
+META = "Orange County, CA"
 
 TOOLS = [
     {"slug": "notioniq", "name": "notionIQ",
      "lines": ["Claude reads a Notion", "workspace and proposes", "a cleanup."],
      "proof": "50 tests"},
     {"slug": "ai-jobs", "name": "ai-jobs",
-     "lines": ["My job search, run from", "Claude Code. Listings, fit", "scores, tailored CVs."],
+     "lines": ["A job search pipeline in", "Claude Code. Listings, fit", "scores, tailored CVs."],
      "proof": "89 tests"},
     {"slug": "it-automation-tools", "name": "it-automation-tools",
      "lines": ["Zscaler cert trust, weekly", "restarts and Edge repair", "for Windows and Mac."],
